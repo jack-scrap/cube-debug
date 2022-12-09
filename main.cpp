@@ -18,7 +18,7 @@ int main() {
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
-	GLfloat vtc[(2 * 2 * 2) * 3];
+	GLfloat vtc[2 * 2 * 2 * 3];
 	int i = 0;
 	for (int z = 0; z < 2; z++) {
 		for (int y = 0; y < 2; y++) {
