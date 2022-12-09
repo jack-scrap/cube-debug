@@ -8,10 +8,7 @@ std::string util::rd(std::string fName) {
 	in.open("./" + fName);
 
 	std::string total;
-	for (
-		std::string l;
-		std::getline(in, l);
-	) {
+	for (std::string l; std::getline(in, l);) {
 		total += l + "\n";
 	}
 
