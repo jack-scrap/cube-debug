@@ -8,7 +8,7 @@
 #include "util.h"
 #include "math.h"
 
-unsigned int res[2] = {
+const unsigned int res[2] = {
 	800,
 	600
 };
