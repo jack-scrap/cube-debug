@@ -2,24 +2,30 @@ EXEC=a.out
 
 CXX=g++
 
+BUILDDIR=build
+
 SRC=main.cpp disp.cpp prog.cpp util.cpp
 
-OBJ=$(SRC:%.cpp=%.o)
+OBJ=$(SRC:%.cpp=$(BUILDDIR)/%.o)
 
 LDFLAGS=-lSDL2 -lGLEW -lGL
 
 .PHONY: all
-all: $(EXEC)
+all: mk_build $(EXEC)
 
-%.o: %.cpp %.h
+$(BUILDDIR)/%.o: %.cpp %.h
 	$(CXX) -c $< -o $@
 
-main.o: main.cpp
+$(BUILDDIR)/main.o: main.cpp
 	$(CXX) -c $< -o $@
 
 $(EXEC): $(OBJ)
 	$(CXX) $(OBJ) -o $@ $(LDFLAGS) 
 
+.PHONY: mk_build
+mk_build:
+	mkdir -p $(BUILDDIR)
+
 .PHONY: clean
 clean:
-	rm *.o $(EXEC)
+	rm $(BUILDDIR)/*.o $(EXEC)
