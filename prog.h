@@ -13,7 +13,7 @@ class Prog {
 	public:
 		GLint _id;
 
-		Prog(std::string vtx, std::string frag);
+		Prog(std::string vtxName, std::string fragName);
 
 		void use();
 

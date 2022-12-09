@@ -44,10 +44,10 @@ Shad::Shad(std::string name, int stage) {
 	}
 }
 
-Prog::Prog(std::string vtx, std::string frag) {
-	Shad _vtx(vtx, VTX);
+Prog::Prog(std::string vtxName, std::string fragName) {
+	Shad _vtx(vtxName, VTX);
 
-	Shad _frag(frag, FRAG);
+	Shad _frag(fragName, FRAG);
 
 	_id = glCreateProgram();
 	glAttachShader(_id, _vtx._id);
