@@ -24,7 +24,7 @@ Shad::Shad(std::string name, int stage) {
 			break;
 	}
 
-	std::string path = name + "." + ext;
+	std::string path = "res/shad/" + name + "." + ext;
 
 	std::string buff = util::rd(path);
 	const char* src = buff.c_str();
