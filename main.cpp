@@ -13,6 +13,12 @@ unsigned int res[2] = {
 	600
 };
 
+enum matrix {
+	MODEL,
+	VIEW,
+	PROJ
+};
+
 int main() {
 	Disp disp("asdf", res[X], res[Y]);
 
@@ -64,9 +70,11 @@ int main() {
 	};
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof idc, idc, GL_STATIC_DRAW);
 
-	glm::mat4 model = glm::mat4(1.0);
-	glm::mat4 view = glm::lookAt(glm::vec3(3, 3, 3), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
-	glm::mat4 proj = glm::perspective(glm::radians(45.0), (double) res[X] / res[Y], 0.1, 100.0);
+	glm::mat4 matrix[3];
+
+	matrix[MODEL] = glm::mat4(1.0);
+	matrix[VIEW] = glm::lookAt(glm::vec3(3, 3, 3), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+	matrix[PROJ] = glm::perspective(glm::radians(45.0), (double) res[X] / res[Y], 0.1, 100.0);
 
 	Prog prog("shad", "shad");
 
@@ -76,13 +84,15 @@ int main() {
 	glVertexAttribPointer(attrPos, 3, GL_FLOAT, GL_FALSE, 0, (GLvoid*) 0);
 	glEnableVertexAttribArray(attrPos);
 
-	GLint uniModel = glGetUniformLocation(prog._id, "model");
-	GLint uniView = glGetUniformLocation(prog._id, "view");
-	GLint uniProj = glGetUniformLocation(prog._id, "proj");
+	GLint uni[3];
 
-	glUniformMatrix4fv(uniModel, 1, GL_FALSE, glm::value_ptr(model));
-	glUniformMatrix4fv(uniView, 1, GL_FALSE, glm::value_ptr(view));
-	glUniformMatrix4fv(uniProj, 1, GL_FALSE, glm::value_ptr(proj));
+	uni[MODEL] = glGetUniformLocation(prog._id, "model");
+	uni[VIEW] = glGetUniformLocation(prog._id, "view");
+	uni[PROJ] = glGetUniformLocation(prog._id, "proj");
+
+	glUniformMatrix4fv(uni[MODEL], 1, GL_FALSE, glm::value_ptr(matrix[MODEL]));
+	glUniformMatrix4fv(uni[VIEW], 1, GL_FALSE, glm::value_ptr(matrix[VIEW]));
+	glUniformMatrix4fv(uni[PROJ], 1, GL_FALSE, glm::value_ptr(matrix[PROJ]));
 
 	prog.unUse();
 
