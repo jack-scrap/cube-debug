@@ -9,7 +9,7 @@ LDFLAGS+=$(SDL)
 LDFLAGS+=$(GL)
 
 .PHONY: all
-all: make
+all: a.out
 
 %.o: %.cpp %.h
 	$(CXX) -c $< -o $@ $(LDFLAGS)
@@ -17,8 +17,7 @@ all: make
 main.o: main.cpp
 	$(CXX) -c $< -o $@ $(LDFLAGS)
 
-.PHONY: make
-make: $(OBJ) $(HDR)
+a.out: $(OBJ) $(HDR)
 	$(CXX) $^ $(LDFLAGS)
 
 .PHONY: clean
