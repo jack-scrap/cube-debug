@@ -8,8 +8,7 @@ SDL=-lSDL2
 LDFLAGS+=$(SDL)
 LDFLAGS+=$(GL)
 
-.PHONY: all make clean
-
+.PHONY: all
 all: make
 
 %.o: %.cpp %.h
@@ -18,8 +17,10 @@ all: make
 main.o: main.cpp
 	$(CXX) -c $< -o $@ $(LDFLAGS)
 
+.PHONY: make
 make: $(OBJ_STATIC) $(HDR)
 	$(CXX) $^ $(LDFLAGS)
 
+.PHONY: clean
 clean:
 	rm *.o a.out
