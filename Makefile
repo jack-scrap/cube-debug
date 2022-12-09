@@ -9,10 +9,10 @@ LDFLAGS=-lSDL2 -lGLEW -lGL
 all: a.out
 
 %.o: %.cpp %.h
-	$(CXX) -c $< -o $@ $(LDFLAGS)
+	$(CXX) -c $< -o $@
 
 main.o: main.cpp
-	$(CXX) -c $< -o $@ $(LDFLAGS)
+	$(CXX) -c $< -o $@
 
 a.out: $(OBJ)
 	$(CXX) $^ $(LDFLAGS)
