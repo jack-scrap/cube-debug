@@ -26,11 +26,11 @@ Shad::Shad(std::string name, int stage) {
 
 	std::string path = name + "." + ext;
 
-	std::string txt = util::rd(path);
-	const char* src = txt.c_str();
+	std::string buff = util::rd(path);
+	const char* src = buff.c_str();
 
 	GLint succ;
-	char buff[] = "";
+	char errBuff[] = "";
 
 	_id = glCreateShader(type);
 	glShaderSource(_id, 1, &src, NULL);
@@ -38,9 +38,9 @@ Shad::Shad(std::string name, int stage) {
 
 	glGetShaderiv(_id, GL_COMPILE_STATUS, &succ);
 	if (!succ) {
-		glGetShaderInfoLog(_id, 512, NULL, buff);
+		glGetShaderInfoLog(_id, 512, NULL, errBuff);
 		std::cout << "Error: " << std::endl;
-		std::cout << buff << std::endl;
+		std::cout << errBuff << std::endl;
 	}
 }
 
