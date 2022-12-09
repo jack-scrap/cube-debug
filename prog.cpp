@@ -6,15 +6,22 @@
 #include "prog.h"
 #include "util.h"
 
-Shad::Shad(std::string name, bool vtx) {
+Shad::Shad(std::string name, int stage) {
 	std::string ext;
 	GLenum type;
-	if (vtx) {
-		ext = "vs";
-		type = GL_VERTEX_SHADER;
-	} else {
-		ext = "fs";
-		type = GL_FRAGMENT_SHADER;
+
+	switch (stage) {
+		case 0:
+			ext = "fs";
+			type = GL_FRAGMENT_SHADER;
+
+			break;
+
+		case 1:
+			ext = "vs";
+			type = GL_VERTEX_SHADER;
+
+			break;
 	}
 
 	std::string path = std::string(name) + std::string(".") + ext;

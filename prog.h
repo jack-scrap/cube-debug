@@ -6,7 +6,7 @@ class Shad {
 	public:
 		GLint _id;
 
-		Shad(std::string name, bool vtx);
+		Shad(std::string name, int stage);
 };
 
 class Prog {
