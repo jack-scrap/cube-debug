@@ -24,7 +24,7 @@ Shad::Shad(std::string name, int stage) {
 			break;
 	}
 
-	std::string path = std::string(name) + std::string(".") + ext;
+	std::string path = name + "." + ext;
 
 	std::string txt = util::rd(path);
 	const char* src = txt.c_str();
