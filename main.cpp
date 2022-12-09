@@ -49,7 +49,7 @@ int main() {
 	glGenBuffers(1, &ibo);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
 
-	GLuint idc[3 * 2 * 3 * 2] = {
+	GLushort idc[3 * 2 * 3 * 2] = {
 		0, 1, 2,
 		2, 1, 3,
 
@@ -108,7 +108,7 @@ int main() {
 
 		prog.use();
 
-		glDrawElements(GL_TRIANGLES, sizeof idc / sizeof *idc, GL_UNSIGNED_INT, (GLvoid*) 0);
+		glDrawElements(GL_TRIANGLES, sizeof idc / sizeof *idc, GL_UNSIGNED_SHORT, (GLvoid*) 0);
 
 		prog.unUse();
 
