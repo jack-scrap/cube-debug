@@ -21,6 +21,11 @@ Shad::Shad(std::string name, int stage) {
 			type = GL_FRAGMENT_SHADER;
 
 			break;
+
+		default:
+			std::cerr << "Error: Invalid enumeration for shader" << std::endl;
+
+			break;
 	}
 
 	std::string path = "res/shad/" + name + "." + ext;
