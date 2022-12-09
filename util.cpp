@@ -7,12 +7,12 @@ std::string util::rd(std::string fName) {
 	std::ifstream in;
 	in.open("./" + fName);
 
-	std::string total;
+	std::string str;
 	for (std::string l; std::getline(in, l);) {
-		total += l + "\n";
+		str += l + "\n";
 	}
 
 	in.close();
 
-	return total;
+	return str;
 }
