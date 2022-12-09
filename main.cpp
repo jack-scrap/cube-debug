@@ -6,6 +6,7 @@
 #include "disp.h"
 #include "prog.h"
 #include "util.h"
+#include "math.h"
 
 unsigned int res[2] = {
 	800,
@@ -13,7 +14,7 @@ unsigned int res[2] = {
 };
 
 int main() {
-	Disp disp("asdf", res[0], res[1]);
+	Disp disp("asdf", res[X], res[Y]);
 
 	GLuint vao;
 	glGenVertexArrays(1, &vao);
@@ -65,7 +66,7 @@ int main() {
 
 	glm::mat4 model = glm::mat4(1.0);
 	glm::mat4 view = glm::lookAt(glm::vec3(3, 3, 3), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
-	glm::mat4 proj = glm::perspective(glm::radians(45.0), (double) res[0] / res[1], 0.1, 100.0);
+	glm::mat4 proj = glm::perspective(glm::radians(45.0), (double) res[X] / res[Y], 0.1, 100.0);
 
 	Prog prog("shad", "shad");
 

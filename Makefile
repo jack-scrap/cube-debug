@@ -6,6 +6,8 @@ BUILDDIR=build
 
 SRC=main.cpp disp.cpp prog.cpp util.cpp
 
+HDR=math.h
+
 OBJ=$(SRC:%.cpp=$(BUILDDIR)/%.o)
 
 LDFLAGS=-lSDL2 -lGLEW -lGL
@@ -19,7 +21,7 @@ $(BUILDDIR)/%.o: %.cpp %.h
 $(BUILDDIR)/main.o: main.cpp
 	$(CXX) -c $< -o $@
 
-$(EXEC): $(OBJ)
+$(EXEC): $(OBJ) $(HDR)
 	$(CXX) $(OBJ) -o $@ $(LDFLAGS) 
 
 .PHONY: mk_build
