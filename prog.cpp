@@ -9,7 +9,6 @@
 Shad::Shad(std::string name, int stage) {
 	std::string ext;
 	GLenum type;
-
 	switch (stage) {
 		case Prog::VTX:
 			ext = "vs";
