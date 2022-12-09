@@ -73,7 +73,7 @@ int main() {
 	glm::mat4 matrix[3];
 
 	matrix[MODEL] = glm::mat4(1.0);
-	matrix[VIEW] = glm::lookAt(glm::vec3(3, 3, 3), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+	matrix[VIEW] = glm::lookAt(glm::vec3(3.0, 3.0, 3.0), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0, 1, 0));
 	matrix[PROJ] = glm::perspective(glm::radians(45.0), (double) res[X] / res[Y], 0.1, 100.0);
 
 	Prog prog("obj", "pos");
