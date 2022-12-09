@@ -7,8 +7,13 @@
 #include "prog.h"
 #include "util.h"
 
+unsigned int res[2] = {
+	800,
+	600
+};
+
 int main() {
-	Disp disp("asdf", 800, 600);
+	Disp disp("asdf", res[0], res[1]);
 
 	GLuint vao;
 	glGenVertexArrays(1, &vao);
@@ -60,7 +65,7 @@ int main() {
 
 	glm::mat4 model = glm::mat4(1.0);
 	glm::mat4 view = glm::lookAt(glm::vec3(3, 3, 3), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
-	glm::mat4 proj = glm::perspective(glm::radians(45.0), 800.0 / 600.0, 0.1, 100.0);
+	glm::mat4 proj = glm::perspective(glm::radians(45.0), (double) res[0] / res[1], 0.1, 100.0);
 
 	Prog prog("shad", "shad");
 
