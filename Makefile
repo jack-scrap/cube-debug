@@ -17,7 +17,7 @@ all: a.out
 main.o: main.cpp
 	$(CXX) -c $< -o $@ $(LDFLAGS)
 
-a.out: $(OBJ) $(HDR)
+a.out: $(OBJ)
 	$(CXX) $^ $(LDFLAGS)
 
 .PHONY: clean
