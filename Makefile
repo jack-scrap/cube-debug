@@ -3,10 +3,7 @@ CXX=g++
 SRC=main.cpp disp.cpp prog.cpp util.cpp
 OBJ=$(SRC:%.cpp=%.o)
 
-GL=-lGLEW -lGL
-SDL=-lSDL2
-LDFLAGS+=$(SDL)
-LDFLAGS+=$(GL)
+LDFLAGS=-lSDL2 -lGLEW -lGL
 
 .PHONY: all
 all: a.out
