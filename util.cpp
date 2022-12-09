@@ -3,9 +3,9 @@
 
 #include "util.h"
 
-std::string util::rd(std::string name) {
+std::string util::rd(std::string fName) {
 	std::ifstream in;
-	in.open("./" + name);
+	in.open("./" + fName);
 
 	std::string total;
 	for (

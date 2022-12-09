@@ -1,5 +1,5 @@
 #pragma once
 
 namespace util {
-	std::string rd(std::string name);
+	std::string rd(std::string fName);
 }
