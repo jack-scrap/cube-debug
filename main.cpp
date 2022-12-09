@@ -64,6 +64,8 @@ int main() {
 
 	Prog prog("shad", "shad");
 
+	prog.use();
+
 	GLint attrPos = glGetAttribLocation(prog._id, "pos");
 	glVertexAttribPointer(attrPos, 3, GL_FLOAT, GL_FALSE, 0, (GLvoid*) 0);
 	glEnableVertexAttribArray(attrPos);
@@ -72,11 +74,11 @@ int main() {
 	GLint uniView = glGetUniformLocation(prog._id, "view");
 	GLint uniProj = glGetUniformLocation(prog._id, "proj");
 
-	prog.use();
-
 	glUniformMatrix4fv(uniModel, 1, GL_FALSE, glm::value_ptr(model));
 	glUniformMatrix4fv(uniView, 1, GL_FALSE, glm::value_ptr(view));
 	glUniformMatrix4fv(uniProj, 1, GL_FALSE, glm::value_ptr(proj));
+
+	prog.unUse();
 
 	SDL_Event e;
 	while (disp.open) {
@@ -88,7 +90,11 @@ int main() {
 
 		disp.clear(0, 0, 0, 1);
 
+		prog.use();
+
 		glDrawElements(GL_TRIANGLES, sizeof idc / sizeof *idc, GL_UNSIGNED_INT, (GLvoid*) 0);
+
+		prog.unUse();
 
 		disp.update();
 	}
