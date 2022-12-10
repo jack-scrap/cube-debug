@@ -13,7 +13,7 @@ const unsigned int res[2] = {
 	600
 };
 
-enum matrix {
+enum {
 	MODEL,
 	VIEW,
 	PROJ

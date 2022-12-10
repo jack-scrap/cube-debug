@@ -1,6 +1,6 @@
 #pragma once
 
-enum axis {
+enum {
 	X,
 	Y,
 	Z

@@ -19,7 +19,7 @@ class Prog {
 
 		void unUse();
 
-		enum stage {
+		enum {
 			VTX,
 			FRAG
 		};
