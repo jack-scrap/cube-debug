@@ -2,5 +2,6 @@
 
 enum axis {
 	X,
-	Y
+	Y,
+	Z
 };
