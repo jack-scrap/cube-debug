@@ -13,11 +13,11 @@ const unsigned int res[2] = {
 	600
 };
 
-enum {
+typedef enum {
 	MODEL,
 	VIEW,
 	PROJ
-};
+} uni_t;
 
 int main() {
 	Disp disp("asdf", res[X], res[Y]);
@@ -104,7 +104,7 @@ int main() {
 			}
 		}
 
-		disp.clear(0, 0, 0, 1);
+		disp.clear(1.0, 0.6, 0, 1);
 
 		matrix[MODEL] = glm::rotate(matrix[MODEL], (GLfloat) 0.01, glm::vec3(1.0));
 
