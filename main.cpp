@@ -106,8 +106,12 @@ int main() {
 
 		disp.clear(0, 0, 0, 1);
 
+		matrix[MODEL] = glm::rotate(matrix[MODEL], (GLfloat) 0.01, glm::vec3(1.0));
+
 		glBindVertexArray(vao);
 		prog.use();
+
+		glUniformMatrix4fv(uni[MODEL], 1, GL_FALSE, glm::value_ptr(matrix[MODEL]));
 
 		glDrawElements(GL_TRIANGLES, sizeof idc / sizeof *idc, GL_UNSIGNED_SHORT, (GLvoid*) 0);
 
