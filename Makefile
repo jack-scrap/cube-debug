@@ -1,4 +1,4 @@
-EXEC=cube
+EXEC=cube_debug
 
 CXX=g++
 
