@@ -4,7 +4,7 @@ CXX=g++
 
 BUILDDIR=build
 
-SRC=main.cpp disp.cpp prog.cpp obj.cpp util.cpp
+SRC=main.cpp disp.cpp prog.cpp mesh.cpp obj.cpp util.cpp
 
 HDR=math.h
 
