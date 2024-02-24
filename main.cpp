@@ -11,7 +11,7 @@ const unsigned int res[2] = {
 };
 
 int main() {
-	Disp disp("asdf", res[X], res[Y]);
+	Disp disp("Cube", res[X], res[Y]);
 
 	GLfloat vtc[2 * 2 * 2 * 3];
 	int i = 0;
